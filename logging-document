@@ -1,0 +1,45 @@
+
+#Springboot-Logging:
+->To add log statements in application code, use org.slf4j.Logger and org.slf4j.LoggerFactory from SLF4J. 
+->It provides lots of useful methods for logging anf also decouple the logging implementation from application.
+
+GET: http://localhost:9094/hello
+
+# springboot-security
+
+In the basic authentication, we send a username and password as part of our request.
+When we provide a username and password, it allows us to access the resource
+
+Step 1: Open pom.xml and add the spring-boot-starter-security. It automatically configures the basic security for us.
+
+<dependency>  
+<groupId>org.springframework.boot</groupId>  
+<artifactId>spring-boot-starter-security</artifactId>  
+</dependency>  
+
+Step 2: Restart the server, we get a password in the log. Each time the server starts up the password will be different.
+Step 3: Copy the password from the log.
+Step 4: In the REST client Postman, click on the Authorization tab and do the following:
+
+Select the type of authentication Basic Auth.
+Provide the Username. The default username is user.
+Paste the password, which we have copied from the log.
+Click on the Send button
+
+GET: http://localhost:9094/hello
+ username:user
+ password:password
+----------------------------------------------------------------------------------------------------------------------------------
+                                                 OR
+step1:configure the username and password in the application.properties file. 
+
+spring.security.user.name=user  
+spring.security.user.password=password 
+
+step2:Provide the username and password which we have configured in the properties file. 
+step3:Send Request
+ 
+ 
+ GET: http://localhost:9094/hello
+ username:user
+ password:password
